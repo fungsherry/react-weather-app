@@ -1,25 +1,39 @@
 import React from "react";
-import "./Weather.css";
+import FormattedDate from "./FormattedDate";
+import TemperatureConversion from "./TemperatureConversion";
 
-export default function WeatherOverview() {
+export default function WeatherOverview(props) {
   return (
     <div className="WeatherOverview">
       <div className="row">
-        <h1>Hong Kong</h1>
-        <h3>Saturday 17:00</h3>
+        <h1>{props.data.city}</h1>
+        <h3>
+          <FormattedDate date={props.data.date} />
+        </h3>
         <div className="col-7">
           <h2>
-            30<a href="/">°C</a> | <a href="/">°F</a>
+            <TemperatureConversion celsius={props.data.temperature} />
           </h2>
-          Weather Icon
-          <h4>Rainy</h4>
+          <img
+            src={props.data.iconUrl}
+            alt={props.data.description}
+            className="mx-auto d-block"
+          />
+          <h4 className="text-center text-capitalize">
+            {props.data.description}
+          </h4>
         </div>
         <div className="col-5">
           <ul>
-            <li>💦Humidity: 80%</li>
-            <li>💨Wind: 5km/h</li>
+            <li>💦Humidity: {props.data.humidity}%</li>
+            <li>💨Wind: {props.data.windspeed}km/h</li>
           </ul>
-          <h5>⬇️ 28°C ⬆️ 32°C</h5>
+          <h5>
+            <i class="fa-solid fa-temperature-arrow-down"></i>{" "}
+            {Math.round(props.data.minTemp)}°C \{" "}
+            <i class="fa-solid fa-temperature-arrow-up"></i>{" "}
+            {Math.round(props.data.maxTemp)}°C
+          </h5>
         </div>
       </div>
     </div>
