@@ -12,7 +12,7 @@ export default function DailyForecast(props) {
 
   return (
     <div className="DailyForecast">
-      <div className="card text-center p-1">
+      <div className="card text-center p-2">
         <div className="Forecast-day">{formattedDay()}</div>
         <img
           src={forecastIconUrl}

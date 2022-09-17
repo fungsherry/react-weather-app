@@ -29,9 +29,9 @@ export default function WeatherOverview(props) {
             <li>💨Wind: {props.data.windspeed}km/h</li>
           </ul>
           <h5>
-            <i class="fa-solid fa-temperature-arrow-down"></i>{" "}
+            <i className="fa-solid fa-temperature-arrow-down"></i>{" "}
             {Math.round(props.data.minTemp)}°C \{" "}
-            <i class="fa-solid fa-temperature-arrow-up"></i>{" "}
+            <i className="fa-solid fa-temperature-arrow-up"></i>{" "}
             {Math.round(props.data.maxTemp)}°C
           </h5>
         </div>
