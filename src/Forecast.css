@@ -1,0 +1,16 @@
+.WeatherForecast {
+  font-size: 14px;
+}
+
+.card {
+  background: linear-gradient(to top, #ace0f9 0%, #bbe4e9 100%);
+}
+
+.card:hover {
+  transition: all 200ms ease;
+  background: #fff;
+}
+
+.Forecast-temperature-min {
+  opacity: 0.7;
+}

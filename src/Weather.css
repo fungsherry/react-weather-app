@@ -29,6 +29,12 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  cursor: pointer;
+  transition: all 150ms ease;
+  opacity: 0.8;
+}
+
 li {
   list-style: none;
   text-align: right;

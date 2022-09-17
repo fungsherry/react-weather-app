@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherOverview from "./WeatherOverview";
+import WeatherForecast from "./WeatherForecast";
 import "./Weather.css";
 
 export default function WeatherSearch(props) {
@@ -10,7 +11,6 @@ export default function WeatherSearch(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
-      coordinates: response.data.coord,
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
@@ -19,6 +19,7 @@ export default function WeatherSearch(props) {
       maxTemp: response.data.main.temp_max,
       humidity: response.data.main.humidity,
       windspeed: response.data.wind.speed,
+      coordinates: response.data.coord,
       iconUrl: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
@@ -52,6 +53,8 @@ export default function WeatherSearch(props) {
           <input type="submit" className="btn btn-secondary" value="Search" />
         </form>
         <WeatherOverview data={weatherData} />
+        <br />
+        <WeatherForecast coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
